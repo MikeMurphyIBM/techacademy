@@ -43,11 +43,12 @@ locals {
 }
 
 provider "ibm" {
-    region              = var.pvs_region_a
-    zone                = var.pvs_zone_a
-    alias               = "a"
-    ibmcloud_api_key = var.ibmcloud_api_key
+  alias            = "a"
+  region           = "us-east"       # correct region
+  zone             = "wdc06"         # correct PowerVS zone
+  ibmcloud_api_key = var.ibmcloud_api_key
 }
+
 
 
 provider "ibm" {
