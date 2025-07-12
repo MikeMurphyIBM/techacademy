@@ -45,7 +45,7 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 
 # Create an SSH key 
 resource  "ibm_pi_key" "ssh_key_a" {
-  pi_key_name          = "murph2"
+  pi_key_name          = "murph2" 
   cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
   provider             = ibm.a
   pi_ssh_key           = var.ssh_public_key
