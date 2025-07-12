@@ -5,11 +5,11 @@ variable "pvs_region_a" {
 
 variable "workspace_name_a" {
   description = "The name of the workspace to create in region a"
-  default = "bcbush-qbr-pvs"
+  default = "murph-qbr-pvs"
 }
 
 variable "powervs_workspace_a_instance_name" {
-  default = "bcbush-qbr-aix"
+  default = "murph-qbr-aix"
 }
 
 variable "storage_type_a" {
@@ -42,7 +42,7 @@ variable "vpc_region" {
 variable "vpc_name" {
   description = "The name of the VPC"
   type = string
-  default = "bcbush-qbr-vpc"
+  default = "murph-qbr-vpc"
 }
 
 variable "vpc_image_id" {
