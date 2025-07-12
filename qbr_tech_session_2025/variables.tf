@@ -74,3 +74,8 @@ variable "ibmcloud_api_key" {
   type        = string
   sensitive   = true
 }
+
+variable "cloud_instance_id" {
+  description = "The PowerVS Cloud Instance ID"
+  type        = string
+}
