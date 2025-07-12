@@ -52,8 +52,11 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 #}
 
 data "ibm_pi_key" "murph2_existing_key" {
-  pi_cloud_instance_id = var.cloud_instance_id
+  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
   pi_key_name                 = "murph2"
+  provider                    =ibm.a
+
+  depends_on = [ibm_resource_instance.pvs_workspace_a]
 }
 
 # Create an instance in workspace A
