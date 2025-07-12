@@ -1,2 +1,5 @@
 pvs_zone_a = "wdc06"
-
+region               = "us-east"
+resource_group       = "Default"
+cloud_instance_id    = "crn:v1:bluemix:public:power-iaas:wdc06:a/db1a8b544a184fd7ac339c243684a9b7:3fb03767-d239-4350-b6f0-5983fec2b8ef::"
+image_id             = "var.image_id"
