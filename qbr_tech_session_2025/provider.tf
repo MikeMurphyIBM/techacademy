@@ -44,13 +44,17 @@ locals {
 
 provider "ibm" {
     region              = var.pvs_region_a
+    zone                = var.pvs_zone_a
     alias               = "a"
+    ibmcloud_api_key = var.ibmcloud_api_key
 }
 
 
 provider "ibm" {
-    region              = var.pvs_region_a
+    region              = var.pvs_region_b
+    zone                = var.pvs_zone_b
     alias               = "b"
+    ibmcloud_api_key = var.ibmcloud_api_key
 }
 
 
