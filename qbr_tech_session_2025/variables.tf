@@ -9,8 +9,8 @@ variable "pvs_zone_a" {
 }
 
 variable "image_id" {
-  description = "The ID of the IBM Power Virtual Server image to use for the instance." [Conversation History]
-  type        = string # An image ID is typically a string value. [Conversation History]
+  description = "The ID of the IBM Power Virtual Server image to use for the instance." 
+  type        = string # An image ID is typically a string value. 
   default     = "91414a26-212a-4780-83cf-330f192f2225" # **This will set the default image ID to the one you provided.**
 }
 
