@@ -84,6 +84,5 @@ variable "ibmcloud_api_key" {
 
 variable "cloud_instance_id" {
   description = "The PowerVS Cloud Instance ID"
-  default     = ibm_resource_instance.pvs_workspace_a.guid
   type        = string
 }
