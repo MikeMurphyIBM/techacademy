@@ -68,7 +68,7 @@ resource "ibm_pi_instance" "test-instance" {
     pi_image_id           = var.image_id
     pi_key_pair_name      = ibm_pi_key.ssh_key_a.pi_key_name
     pi_sys_type           = "s1022"
-    pi_cloud_instance_id  = var.cloud_instance_id
+    pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
     pi_pin_policy         = "none"
     pi_network {
       network_id          = ibm_pi_network.pvs_network_workspace_a.network_id
