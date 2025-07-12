@@ -46,7 +46,7 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 #}
 
 # Define your PowerVS Workspace
-resource "ibm_pi_workspace" "pvs_workspace_a" {
+data "ibm_pi_workspace" "pvs_workspace_a" {
   pi_name              = "murph-qbr-pvs"
   pi_datacenter        = "wdc06"
   pi_resource_group_id = data.ibm_resource_group.group.id 
