@@ -8,6 +8,12 @@ variable "pvs_zone_a" {
   type        = string
 }
 
+variable "image_id" {
+  description = "The ID of the IBM Power Virtual Server image to use for the instance." [Conversation History]
+  type        = string # An image ID is typically a string value. [Conversation History]
+  default     = "91414a26-212a-4780-83cf-330f192f2225" # **This will set the default image ID to the one you provided.**
+}
+
 
 variable "workspace_name_a" {
   description = "The name of the workspace to create in region a"
