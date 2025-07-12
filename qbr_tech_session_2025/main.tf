@@ -41,8 +41,8 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 resource  "ibm_pi_key" "ssh_key_a" {
   pi_key_name          = "murph2"
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  pi_ssh_key           = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5u mikemurphy@Mikes-MBP.attlocal.net"
   provider             = ibm.a
+  pi_ssh_key           = ""
 }
 
 # Create an instance in workspace A
