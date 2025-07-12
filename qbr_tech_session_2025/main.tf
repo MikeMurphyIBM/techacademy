@@ -52,7 +52,7 @@ resource "ibm_pi_instance" "test-instance" {
     pi_instance_name      = var.powervs_workspace_a_instance_name
     pi_proc_type          = "shared"
     pi_image_id           = "91414a26-212a-4780-83cf-330f192f2225"
-    pi_key_pair_name      = murph2
+    pi_key_pair_name      = "murph2"
     pi_sys_type           = "s1022"
     pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
     pi_pin_policy         = "none"
@@ -109,8 +109,8 @@ resource "ibm_pi_instance" "test-instance" {
 
 # # # Create the SSH key in the vpc
 # # resource "ibm_is_ssh_key" "vpc_ssh_key" {
-# #   name          = murph2
-# #   public_key    = /Users/mikemurphy/.ssh/id_ed25519.pub
+# #   name          = "murph2"
+# #   public_key    = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5u mikemurphy@Mikes-MBP.attlocal.net"
 # #   type          = "Ed25519"
 # #   provider      = ibm.vpc
 # # }
