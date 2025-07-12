@@ -50,27 +50,16 @@ data "ibm_pi_key" "murph2_existing_key" {
   pi_key_name                 = "murph2"
 }
 
-resource "ibm_pi_instance" "my_instance" {
-  pi_cloud_instance_id = var.cloud_instance_id
-  pi_instance_name     = "murph-qbr-aix"
-  pi_image_id          = var.image_id
-  pi_key_pair_name     = data.ibm_pi_key.murph2_existing_key.name
-  pi_network {
-      network_id = ibm_pi_network.pvs_network_workspace_a.network_id}
-}
-
-
-
 # Create an instance in workspace A
 resource "ibm_pi_instance" "test-instance" {
     pi_memory             = "4"
     pi_processors         = "2"
-    pi_instance_name      = var.powervs_workspace_a_instance_name
+    pi_instance_name      = "murph-qbr-aix"
     pi_proc_type          = "shared"
-    pi_image_id           = "91414a26-212a-4780-83cf-330f192f2225"
+    pi_image_id           = var.image_id
     pi_key_pair_name      = "murph2"
     pi_sys_type           = "s1022"
-    pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
+    pi_cloud_instance_id  = var.cloud_instance_id
     pi_pin_policy         = "none"
     pi_network {
       network_id          = ibm_pi_network.pvs_network_workspace_a.network_id
