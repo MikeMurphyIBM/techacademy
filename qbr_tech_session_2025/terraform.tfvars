@@ -1,3 +1,3 @@
 pvs_zone_a         = "wdc06"
-cloud_instance_id = "wdc06:a/db1a8b544a184fd7ac339c243684a9b7:3fb03767-d239-4350-b6f0-5983fec2b8ef::"
+pi_cloud_instance_id = "wdc06:a/db1a8b544a184fd7ac339c243684a9b7:3fb03767-d239-4350-b6f0-5983fec2b8ef::"
 ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyUGbL9JPJ2/2GB/E5tk/zkEQa3ZDt7+lBi36A+pMF/iMtVBcCTj7lsXxJ+QhCZp4Y5yl3amkTzdNUYZmt0PQN8eAmQBVAKS7H5pkRqk7DLfRYmpLvnrYHF3jekqunFaspJGXvLhmfextKkzzlnppXU/o97Rwwj9MOfSqmlv07YEsUbBDHWHak4s1Cm7aSpCRiO0z2tnAsyllCwB/Ha9xqrDrocJqYcBZTA7rOgH08p75JgsOTW2gjSxOgACW/3lRxlOcyh4uZL3bcZBLpiwn+DMeYFdwIt0kpKW4GPqAjqc0m2zyArSv2XaUkhkuecNTmvXX5yTuheDkbygpAakB3Pyrb+wW4GdGGAuWxnx6LvuhklDMAZGVpzVt3M7QZIwphFtpkeE40Ia7xN4C4O5lka20IaM2fwT1VyeTgjErDoA8mvBU3fb7cDTrjMUdzH8f+II/ekamg9yvM3NprN4mpADD6cDG0mp6YX74rIJEkdq74DyetyWZ2Cf8XoZjyRis= mikemurphy@Mikes-MBP.attlocal.net"
