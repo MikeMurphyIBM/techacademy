@@ -86,3 +86,9 @@ variable "cloud_instance_id" {
   description = "The PowerVS Cloud Instance ID"
   type        = string
 }
+
+variable "ssh_public_key" {
+  description = "The content of the SSH public key for Power Virtual Server"
+  type        = string 
+  sensitive   = true # Recommended for security
+}
