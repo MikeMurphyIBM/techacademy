@@ -6,7 +6,7 @@ data "ibm_resource_group" "group" {
 provider "ibm" {
   ibmcloud_api_key = var.ibmcloud_api_key 
   region           = var.pvs_region_a   
-  zone             = var.pvs_region_a    
+  zone             = var.pvs_zone_a    
 }
 
 # data "ibm_is_ssh_key" "murph2" {
