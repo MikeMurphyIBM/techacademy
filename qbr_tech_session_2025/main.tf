@@ -4,7 +4,7 @@ data "ibm_resource_group" "group" {
 }
 
 provider "ibm" {
-  ibmcloud_api_key = var.ibmcloud_apikey 
+  ibmcloud_api_key = var.ibmcloud_api_key 
   region           = var.ibmcloud_region   
   zone             = var.pvs_region_a    
 }
