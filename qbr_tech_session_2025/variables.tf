@@ -3,6 +3,12 @@ variable "pvs_region_a" {
   default = "wdc06"
 } 
 
+variable "pvs_zone_a" {
+  description = "Zone for PowerVS (e.g., wdc06)"
+  type        = string
+}
+
+
 variable "workspace_name_a" {
   description = "The name of the workspace to create in region a"
   default = "murph-qbr-pvs"
