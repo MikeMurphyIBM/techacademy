@@ -38,13 +38,12 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 }
 
 # Create an SSH key 
-#resource  "ibm_pi_key" "ssh_key_a" {
-  #pi_key_name          = "murph2"
-  #pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  #provider             = ibm.a
-  #type                 = "ed25519"
-  #pi_ssh_key           = "ssh-ed25519AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5umikemurphy@Mikes-MBP.attlocal.net"
-#}
+resource  "ibm_pi_key" "ssh_key_a" {
+  pi_key_name          = "murph2"
+  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
+  provider             = ibm.a
+  pi_ssh_key           = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyUGbL9JPJ2/2GB/E5tk/zkEQa3ZDt7+lBi36A+pMF/iMtVBcCTj7lsXxJ+QhCZp4Y5yl3amkTzdNUYZmt0PQN8eAmQBVAKS7H5pkRqk7DLfRYmpLvnrYHF3jekqunFaspJGXvLhmfextKkzzlnppXU/o97Rwwj9MOfSqmlv07YEsUbBDHWHak4s1Cm7aSpCRiO0z2tnAsyllCwB/Ha9xqrDrocJqYcBZTA7rOgH08p75JgsOTW2gjSxOgACW/3lRxlOcyh4uZL3bcZBLpiwn+DMeYFdwIt0kpKW4GPqAjqc0m2zyArSv2XaUkhkuecNTmvXX5yTuheDkbygpAakB3Pyrb+wW4GdGGAuWxnx6LvuhklDMAZGVpzVt3M7QZIwphFtpkeE40Ia7xN4C4O5lka20IaM2fwT1VyeTgjErDoA8mvBU3fb7cDTrjMUdzH8f+II/ekamg9yvM3NprN4mpADD6cDG0mp6YX74rIJEkdq74DyetyWZ2Cf8XoZjyRis= mikemurphy@Mikes-MBP.attlocal.net"
+}
 
 # Create an instance in workspace A
 resource "ibm_pi_instance" "test-instance" {
@@ -110,8 +109,8 @@ resource "ibm_pi_instance" "test-instance" {
 # # # Create the SSH key in the vpc
 # # resource "ibm_is_ssh_key" "vpc_ssh_key" {
 # #   name          = "murph2"
-# #   public_key    = "ssh-ed25519AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5umikemurphy@Mikes-MBP.attlocal.net"
-# #   type          = "Ed25519"
+# #   public_key    = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyUGbL9JPJ2/2GB/E5tk/zkEQa3ZDt7+lBi36A+pMF/iMtVBcCTj7lsXxJ+QhCZp4Y5yl3amkTzdNUYZmt0PQN8eAmQBVAKS7H5pkRqk7DLfRYmpLvnrYHF3jekqunFaspJGXvLhmfextKkzzlnppXU/o97Rwwj9MOfSqmlv07YEsUbBDHWHak4s1Cm7aSpCRiO0z2tnAsyllCwB/Ha9xqrDrocJqYcBZTA7rOgH08p75JgsOTW2gjSxOgACW/3lRxlOcyh4uZL3bcZBLpiwn+DMeYFdwIt0kpKW4GPqAjqc0m2zyArSv2XaUkhkuecNTmvXX5yTuheDkbygpAakB3Pyrb+wW4GdGGAuWxnx6LvuhklDMAZGVpzVt3M7QZIwphFtpkeE40Ia7xN4C4O5lka20IaM2fwT1VyeTgjErDoA8mvBU3fb7cDTrjMUdzH8f+II/ekamg9yvM3NprN4mpADD6cDG0mp6YX74rIJEkdq74DyetyWZ2Cf8XoZjyRis= mikemurphy@Mikes-MBP.attlocal.net"
+# #   type          = "RSA"
 # #   provider      = ibm.vpc
 # # }
 
