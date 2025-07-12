@@ -3,6 +3,12 @@ data "ibm_resource_group" "group" {
   name = "Default"
 }
 
+provider "ibm" {
+  ibmcloud_api_key = var.ibmcloud_apikey 
+  region           = var.ibmcloud_region   
+  zone             = var.pvs_region_a    
+}
+
 # data "ibm_is_ssh_key" "murph2" {
 #   name = "murph2"
 #   provider = ibm.vpc
