@@ -62,3 +62,9 @@ variable "vpc_zone" {
 variable "vsi_instance_name" {
   default = "bcbush-jumpserver"
 }
+
+variable "ibmcloud_api_key" {
+  description = "IBM Cloud API key used to authenticate with the provider"
+  type        = string
+  sensitive   = true
+}
