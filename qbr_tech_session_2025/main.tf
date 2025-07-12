@@ -55,8 +55,7 @@ resource "ibm_pi_instance" "my_instance" {
   pi_instance_name     = "murph-qbr-aix"
   pi_image_id          = var.image_id
   pi_key_pair_name     = data.ibm_pi_key.murph2_existing_key.name
-  
-    pi_network {
+  pi_network {
       network_id = ibm_pi_network.pvs_network_workspace_a.network_id}
 }
 
