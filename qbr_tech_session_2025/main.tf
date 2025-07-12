@@ -50,11 +50,13 @@ resource "ibm_pi_workspace" "pvs_workspace_a" {
   pi_name              = "murph-qbr-pvs"
   pi_datacenter        = "wdc06"
   pi_resource_group_id = data.ibm_resource_group.group.id 
+}
 
-#Referencing existing SSH key
+#Referencing existing SSH key {
 pi_key_name                = "murph2"
     pi_cloud_instance_id   = ibm_resource_instance.pvs_workspace_a.guid
     pi_key_pair_name       = data.ibm_pi_key.murph2_existing_key.name
+}
 
 
 # Create an instance in workspace A
