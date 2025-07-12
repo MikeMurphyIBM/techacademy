@@ -62,7 +62,7 @@ variable "vpc_zone" {
 variable "ibmcloud_api_key" {
   type    = string
   description = "IBM Cloud API key to authenticate"
-  sensitive = true # marks the variable as sensitive
+  sensitive = false # marks the variable as sensitive
 }
 
 variable "vsi_instance_name" {
