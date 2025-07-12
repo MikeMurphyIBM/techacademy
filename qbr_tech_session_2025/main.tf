@@ -3,8 +3,8 @@ data "ibm_resource_group" "group" {
   name = "Default"
 }
 
-# data "ibm_is_ssh_key" "bcbush_1pass" {
-#   name = "bcbush-1pass"
+# data "ibm_is_ssh_key" "murph2" {
+#   name = "murph2"
 #   provider = ibm.vpc
 # }
 
