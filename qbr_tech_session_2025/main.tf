@@ -140,7 +140,7 @@ resource "ibm_pi_instance" "test-instance" {
 #   }
 #   vpc                 = ibm_is_vpc.admin_vpc.id
 #   zone                = var.vpc_zone
-#   keys                = [data.ibm_is_ssh_key.bcbush_1pass.id]
+#   keys                = [data.ibm_is_ssh_key.murph2.id]
 #   resource_group      = data.ibm_resource_group.group.id
 #   provider            = ibm.vpc
 # }
@@ -179,19 +179,3 @@ resource "ibm_pi_instance" "test-instance" {
 #   provider            = ibm.vpc
 # }
 
-# # Create the Compass by Cobalt Iron Virtual Private Endpoint Gateway
-# resource "ibm_is_virtual_endpoint_gateway" "compass-us-east" {
-#   name              = "compass-vpeg"
-#   target {
-#     crn             = "crn:v1:bluemix:public:compass:wdc06:::endpoint:vault04.private.us-east-2.compass.cobaltiron.com"
-#     resource_type   = "provider_cloud_service"
-#   }
-#   ips {
-#     name            = "compass_ip"
-#     subnet          = ibm_is_subnet.test_vpc_main_zone_1.id
-#   }
-#   vpc               = ibm_is_vpc.admin_vpc.id
-#   resource_group    = data.ibm_resource_group.group.id
-#   security_groups   = [ibm_is_vpc.admin_vpc.security_group[0].group_id]
-#   provider          = ibm.vpc
-# }
