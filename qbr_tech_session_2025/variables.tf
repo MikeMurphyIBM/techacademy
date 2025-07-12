@@ -1,11 +1,12 @@
 variable "pvs_region_a" {
   description = "Where to deploy the Power VS Workspace A"
-  default = "wdc06"
+  default = "us-east"
 } 
 
 variable "pvs_zone_a" {
   description = "Zone for PowerVS (e.g., wdc06)"
   type        = string
+  default     = "WDC06"
 }
 
 variable "image_id" {
