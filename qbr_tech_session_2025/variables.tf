@@ -20,13 +20,13 @@ variable "storage_type_a" {
 variable "ssh_key_name" {
   description = "Name of the ssh key to be used"
   type        = string
-  default     = "bcbush-qbr-ssh"
+  default     = "murph2"
 }
 
 variable "ssh_key_rsa" {
   description = "Public ssh key"
   type        = string
-  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDK0BHNL2ct5XpfQtY4vMEfON7ac2H3+X6p885vFEPSKyJwLCqflrRE2bi+R7YBRwM54VZKFQ+K9t3GjZXnRmZ7Ob+c9E5viE778X9bZMx7Yk3yZ8/j/peJpLYrw8ya+PqlExhNc4IBGBkSdhyRZ0f52SyreYhMA5wYspYyN+qSlp1PrDZl5ih5USzlXmfUebaG4r3/ADORUOkHuIUlopBr+mxE4D/cMS+I5en4Epzi8u0VdR7IjOZ4YzsqJYIDKtGsg7cyif/vvQct9F1GpLsUyXnrS/iL90cDgfSvUuI9dkMfRD+hsLIRLMMUDrLHSBbpeJJ1SHuQpfVOmnzcyEIHTLfqd1W+EslKFpThkeQ4I7gn+N4CD7ZkdqYp65IWy7fkkQaHjVhFOMNrV8epje2aY80pQc1/6BsQwzUn9rewV+MQnMfG96gtL29/osE2QWoAtO2WEf3rONBmllqLugJZqd0JHd3CgjIkPKFg6aHPzZp8711GEKIdLhaOCni7j7y5u8Pqv/M7sDl9nlg8UZ9CMRWuINM39lpEu0S9PF1OLNca3ECC4A6cfi+BcEjzpGbi/AtzkelfIeB5aGPZllclikI9UDel2s+MRGNipWDGTzBnPr1PVzHFPmEnT3GbUUzzGCttTQS1hAAdIsnr1Ql8W1tX6otofe/7T2D0fZgpxw=="
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5u mikemurphy@Mikes-MBP.attlocal.net"
 }
 
 variable "vpc_region" {
