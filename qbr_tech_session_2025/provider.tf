@@ -45,16 +45,18 @@ locals {
 provider "ibm" { ... }
     region              = lookup(local.ibm_powervs_zone_region_map, var.pvs_region_a, null)
     alias               = "a"
-    ibmcloud_api_key    =
+    ibmcloud_api_key    = var.ibmcloud_api_key
 
 
 provider "ibm" { ... }
     region              = lookup(local.ibm_powervs_zone_region_map, var.pvs_region_b, null)
     alias               = "b"
-    ibmcloud_api_key    =
+    ibmcloud_api_key    = var.ibmcloud_api_key
 
 
 provider "ibm" { ... }
     region              = var.vpc_region
     alias               = "vpc"
+    ibmcloud_api_key    = var.ibmcloud_api_key
+
 
