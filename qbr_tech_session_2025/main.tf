@@ -42,7 +42,7 @@ resource  "ibm_pi_key" "ssh_key_a" {
   pi_key_name          = "murph2"
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
   provider             = ibm.a
-  pi_ssh_key           = file(/Users/mikemurphy/.ssh/id_ed25519.pub)
+  pi_ssh_key           = file("/Users/mikemurphy/.ssh/id_ed25519.pub")
 }
 
 # Create an instance in workspace A
