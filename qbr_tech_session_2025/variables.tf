@@ -32,7 +32,7 @@ variable "ssh_key_name" {
 variable "ssh_key_rsa" {
   description = "Public ssh key"
   type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5u mikemurphy@Mikes-MBP.attlocal.net"
+  default     = "ssh-ed25519AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5umikemurphy@Mikes-MBP.attlocal.net"
 }
 
 variable "vpc_region" {
