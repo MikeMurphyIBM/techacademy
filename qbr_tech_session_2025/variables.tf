@@ -1,7 +1,7 @@
 variable "pvs_region_a" {
   description = "Where to deploy the Power VS Workspace A"
   default = "wdc06"
-}
+} 
 
 variable "workspace_name_a" {
   description = "The name of the workspace to create in region a"
