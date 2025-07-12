@@ -82,10 +82,6 @@ variable "ibmcloud_api_key" {
   sensitive   = true
 }
 
-variable "pi_cloud_instance_id" {
-  description = "The PowerVS Cloud Instance ID"
-  type        = string
-}
 
 variable "ssh_public_key" {
   description = "The content of the SSH public key for Power Virtual Server"
