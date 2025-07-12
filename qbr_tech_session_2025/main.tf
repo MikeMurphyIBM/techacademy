@@ -44,7 +44,7 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
   #provider             = ibm.a
   #type                 = "ed25519"
   #pi_ssh_key           = "ssh-ed25519AAAAC3NzaC1lZDI1NTE5AAAAIFxCFkBYYZkECcH0H1yzlu71fh9y26QHNbY7gOUReV5umikemurphy@Mikes-MBP.attlocal.net"
-}
+#}
 
 # Create an instance in workspace A
 resource "ibm_pi_instance" "test-instance" {
