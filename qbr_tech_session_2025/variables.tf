@@ -59,12 +59,6 @@ variable "vpc_zone" {
   default = "us-east-1"  
 }
 
-variable "ibmcloud_api_key" {
-  type    = string
-  description = "IBM Cloud API key to authenticate"
-  sensitive = false # marks the variable as sensitive
-}
-
 variable "vsi_instance_name" {
   default = "bcbush-jumpserver"
 }
