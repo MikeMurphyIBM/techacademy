@@ -47,7 +47,7 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 
 data "ibm_pi_key" "murph2_existing_key" {
   pi_cloud_instance_id = var.cloud_instance_id
-  name                 = "murph2"
+  pi_key_name                 = "murph2"
 }
 
 resource "ibm_pi_instance" "my_instance" {
