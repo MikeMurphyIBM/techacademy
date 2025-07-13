@@ -192,39 +192,22 @@ resource "ibm_pi_instance" "test-instance" {
    provider            = ibm.vpc
  }
 
-data "ibm_is_vpc" "murph_vpc" {
-  name = "murph-qbr-vpc" 
-}
-
-# Data source to retrieve an existing Resource Group by name
-data "ibm_resource_group" "my_resource_group" {
-  name = "Default" 
-}
 
 # Create Security Group to allow SSH/Port 22 Traffic
-resource "ibm_is_security_group" "murph_security_group" {
-  name           = "murph-security-group"
-  vpc            = data.ibm_is_vpc.murph_vpc.id
-  resource_group = data.ibm_resource_group.my_resource_group.id
-}
+#resource "ibm_is_security_group" "murph_security_group" {
+ # name           = "murph-security-group"
+  #vpc            = data.ibm_is_vpc.murph_vpc.id
+  #resource_group = data.ibm_resource_group.my_resource_group.id
+#}
 
-resource "ibm_is_security_group_rule" "allow_ssh_inbound" {
-  group     = ibm_is_security_group.murph_security_group.id
-  direction = "inbound"
-  tcp {
-    port_min  = 22
-    port_max  = 22
-  }
-  remote    = "0.0.0.0/0"
-}
+#resource "ibm_is_security_group_rule" "allow_ssh_inbound" {
+ # group     = ibm_is_security_group.murph_security_group.id
+  #direction = "inbound"
+  #tcp {
+   # port_min  = 22
+    #port_max  = 22
+  #}
+  #remote    = "0.0.0.0/0"
+#}
 
-data "ibm_is_instance" "murph_jumpserver" {
-  name = "murph-jumpserver"
-  # vpc  = data.ibm_is_vpc.murph_vpc.id
-  # zone = var.vpc.zone
-}
 
-resource "ibm_is_security_group_target" "assign_sg_to_jumpserver" {
-  security_group = ibm_is_security_group.murph_security_group.id
-  target         = data.ibm_is_instance.murph_jumpserver.primary_network_interface.id
-}
