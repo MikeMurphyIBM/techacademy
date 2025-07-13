@@ -44,12 +44,12 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 }
 
 # Create an SSH key 
-resource  "ibm_pi_key" "ssh_key_a" {
-  pi_key_name          = "murph2" 
-  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  provider             = ibm.a
-  pi_ssh_key           = var.ssh_public_key
-}
+#resource  "ibm_pi_key" "ssh_key_a" {
+ # pi_key_name          = "murph2" 
+  #pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
+  #provider             = ibm.a
+  #pi_ssh_key           = var.ssh_public_key
+#}
 
 #resource "ibm_pi_key" "murph2_existing_key" {
  # pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
@@ -66,7 +66,7 @@ resource "ibm_pi_instance" "test-instance" {
     pi_instance_name      = "murph-qbr-aix"
     pi_proc_type          = "shared"
     pi_image_id           = var.image_id
-    pi_key_pair_name      = ibm_pi_key.ssh_key_a.pi_key_name
+    pi_key_pair_name      = murph2
     pi_sys_type           = "s1022"
     pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
     pi_pin_policy         = "none"
