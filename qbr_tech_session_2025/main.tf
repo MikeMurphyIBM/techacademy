@@ -201,20 +201,20 @@ data "ibm_resource_group" "my_resource_group" {
   name = "Default" 
 }
 
-# Resource to CREATE the IBM Cloud VPC Security Group
+# Create Security Group to allow SSH/Port 22 Traffic
 resource "ibm_is_security_group" "murph_security_group" {
-  name           = "murph-security-group" 
-  vpc            = data.ibm_is_vpc.murph_vpc.id 
-  resource_group = data.ibm_resource_group.my_resource_group.id 
+  name           = "murph-security-group"
+  vpc            = data.ibm_is_vpc.murph_vpc.id
+  resource_group = data.ibm_resource_group.my_resource_group.id
 }
 
-# Create an Inbound Rule within the NEWLY CREATED Security Group to Allow SSH Traffic
 resource "ibm_is_security_group_rule" "allow_ssh_inbound" {
   group     = ibm_is_security_group.murph_security_group.id
   direction = "inbound"
   protocol  = "tcp"
-  port_min  = 22
-  port_max  = 22
-
+  tcp {
+    port_min  = 22
+    port_max  = 22
+  }
   remote    = "0.0.0.0/0"
 }
