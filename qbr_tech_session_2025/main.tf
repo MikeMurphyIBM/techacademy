@@ -192,22 +192,39 @@ resource "ibm_pi_instance" "test-instance" {
    provider            = ibm.vpc
  }
 
+# Define a new security group for SSH access
+resource "ibm_is_security_group" "ssh_access_sg" {
+  name = "murph_ssh_sg"
+  vpc  = ibm_is_vpc.admin_vpc.id
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
 
-# Create Security Group to allow SSH/Port 22 Traffic
-#resource "ibm_is_security_group" "murph_security_group" {
- # name           = "murph-security-group"
-  #vpc            = data.ibm_is_vpc.murph_vpc.id
-  #resource_group = data.ibm_resource_group.my_resource_group.id
-#}
+# Data source to retrieve existing SSH key by its ID
+data "ibm_is_ssh_key" "murph_ssh_key" {
+  id = "r014-f4ad314c-63fc-4cda-86a4-035bef2cc29a"
+}
 
-#resource "ibm_is_security_group_rule" "allow_ssh_inbound" {
- # group     = ibm_is_security_group.murph_security_group.id
-  #direction = "inbound"
-  #tcp {
-   # port_min  = 22
-    #port_max  = 22
-  #}
-  #remote    = "0.0.0.0/0"
-#}
+# Define VSI resource to attach the new security group and SSH key
+resource "ibm_is_instance" "instance1" {
+  name           = "murph-jumpserver"
+  vpc            = ibm_is_vpc.admin_vpc.id
+  keys           = [data.ibm_is_ssh_key.murph_ssh_key.id]
+  image          = var.vpc_image_id
+  profile        = var.vsi_profile
+  zone           = var.vpc_zone
+
+  primary_network_interface {
+    subnet          = "0757-1972caf2-97f3-4deb-901b-5eb9ea1e504d"
+    security_groups = [
+      ibm_is_vpc.admin_vpc.default_security_group.id,
+      ibm_is_security_group.ssh_access_sg.id
+    ]
+  }
+}
 
 
