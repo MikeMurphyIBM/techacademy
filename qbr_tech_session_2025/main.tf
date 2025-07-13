@@ -192,3 +192,19 @@ resource "ibm_pi_instance" "test-instance" {
    provider            = ibm.vpc
  }
 
+# Resource to CREATE the IBM Cloud VPC Security Group
+resource "ibm_is_security_group" "murph_security_group" {
+  name           = "murph-security-group" 
+  vpc            = data.ibm_is_vpc.murph_vpc.id
+  resource_group = data.ibm_resource_group.my_resource_group.id
+}
+
+# Create an Inbound Rule within the Security Group to Allow SSH Traffic
+resource "ibm_is_security_group_rule" "allow_ssh_inbound" {
+  group     = ibm_is_security_group.murph_security_group.id
+  direction = "inbound"
+  protocol  = "tcp"
+  port_min  = 22
+  port_max  = 22
+  remote    = "0.0.0.0/0"
+}
