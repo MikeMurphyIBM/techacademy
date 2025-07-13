@@ -143,22 +143,6 @@ resource "ibm_pi_instance" "test-instance" {
    provider = ibm.vpc
  }
 
-# Define new SSH security group for SSH
-resource "ibm_is_security_group" "murph_ssh_sg" {
-  name = "ssh-access-security-group" 
-  vpc  = ibm_is_vpc.admin_vpc.id     
-
-  # Inbound rule for SSH (Port 22 TCP)
-  inbound_rules {
-    protocol    = "tcp"
-    port_min    = 22
-    port_max    = 22
-    remote      = "0.0.0.0/0" # Allows SSH from any IP. Consider narrowing this for security [3].
-    description = "Allow inbound SSH traffic"
-  }
-}
-
-
 # # Create a VSI
  resource "ibm_is_instance" "instance1" {
    name                = var.vsi_instance_name
@@ -166,10 +150,6 @@ resource "ibm_is_security_group" "murph_ssh_sg" {
    profile             = var.vsi_profile
    primary_network_interface {
      subnet            = ibm_is_subnet.test_vpc_main_zone_1.id
-     security_groups   = [
-      ibm_is_security_group.murph_ssh_sg.id,
-      "r014-494aa177-d09b-41d4-9add-1846103afb01"
-      ]
    }
    vpc                 = ibm_is_vpc.admin_vpc.id
    zone                = var.vpc_zone
