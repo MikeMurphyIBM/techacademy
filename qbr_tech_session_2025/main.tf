@@ -122,41 +122,41 @@ resource "ibm_pi_instance" "test-instance" {
 
 # # # Create the SSH key in the vpc
 # # resource "ibm_is_ssh_key" "vpc_ssh_key" {
-# #   name          = "murph2"
-# #   public_key    = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyUGbL9JPJ2/2GB/E5tk/zkEQa3ZDt7+lBi36A+pMF/iMtVBcCTj7lsXxJ+QhCZp4Y5yl3amkTzdNUYZmt0PQN8eAmQBVAKS7H5pkRqk7DLfRYmpLvnrYHF3jekqunFaspJGXvLhmfextKkzzlnppXU/o97Rwwj9MOfSqmlv07YEsUbBDHWHak4s1Cm7aSpCRiO0z2tnAsyllCwB/Ha9xqrDrocJqYcBZTA7rOgH08p75JgsOTW2gjSxOgACW/3lRxlOcyh4uZL3bcZBLpiwn+DMeYFdwIt0kpKW4GPqAjqc0m2zyArSv2XaUkhkuecNTmvXX5yTuheDkbygpAakB3Pyrb+wW4GdGGAuWxnx6LvuhklDMAZGVpzVt3M7QZIwphFtpkeE40Ia7xN4C4O5lka20IaM2fwT1VyeTgjErDoA8mvBU3fb7cDTrjMUdzH8f+II/ekamg9yvM3NprN4mpADD6cDG0mp6YX74rIJEkdq74DyetyWZ2Cf8XoZjyRis= mikemurphy@Mikes-MBP.attlocal.net"
+# #   name          = var.ssh_key_name
+# #   public_key    = 
 # #   type          = "RSA"
 # #   provider      = ibm.vpc
 # # }
 
 # # Create a subnet from the prefix and using the ACL we created
-# resource "ibm_is_subnet" "test_vpc_main_zone_1" {
-#   vpc             = ibm_is_vpc.admin_vpc.id
-#   name            = "test-vpc-main-zone-1"
-#   zone            = "${var.vpc_region}-1"
-#   resource_group  = data.ibm_resource_group.group.id
-#   network_acl     = ibm_is_network_acl.test_vpc_main_acl_acl.id
-#   ipv4_cidr_block = "192.168.2.0/24"
-#   tags = []
-#   depends_on = [
-#     ibm_is_vpc_address_prefix.test_vpc_test_vpc_zone_1_prefix
-#   ]
-#   provider = ibm.vpc
-# }
+ resource "ibm_is_subnet" "test_vpc_main_zone_1" {
+   vpc             = ibm_is_vpc.admin_vpc.id
+   name            = "test-vpc-main-zone-1"
+   zone            = "${var.vpc_region}-1"
+   resource_group  = data.ibm_resource_group.group.id
+   network_acl     = ibm_is_network_acl.test_vpc_main_acl_acl.id
+   ipv4_cidr_block = "192.168.2.0/24"
+   tags = []
+   depends_on = [
+     ibm_is_vpc_address_prefix.test_vpc_test_vpc_zone_1_prefix
+   ]
+   provider = ibm.vpc
+ }
 
 # # Create a VSI
-# resource "ibm_is_instance" "instance1" {
-#   name                = var.vsi_instance_name
-#   image               = var.vpc_image_id
-#   profile             = var.vsi_profile
-#   primary_network_interface {
-#     subnet            = ibm_is_subnet.test_vpc_main_zone_1.id
-#   }
-#   vpc                 = ibm_is_vpc.admin_vpc.id
-#   zone                = var.vpc_zone
-#   keys                = [data.ibm_is_ssh_key.murph2.id]
-#   resource_group      = data.ibm_resource_group.group.id
-#   provider            = ibm.vpc
-# }
+ resource "ibm_is_instance" "instance1" {
+   name                = var.vsi_instance_name
+   image               = var.vpc_image_id
+   profile             = var.vsi_profile
+   primary_network_interface {
+     subnet            = ibm_is_subnet.test_vpc_main_zone_1.id
+   }
+   vpc                 = ibm_is_vpc.admin_vpc.id
+   zone                = var.vpc_zone
+   keys                = [data.ibm_is_ssh_key.murph2.id]
+   resource_group      = data.ibm_resource_group.group.id
+   provider            = ibm.vpc
+ }
 
 # # Create the FIP for the VSI
 # resource "ibm_is_floating_ip" "vis_fip" {
