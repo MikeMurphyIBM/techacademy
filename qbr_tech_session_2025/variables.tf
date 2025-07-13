@@ -73,7 +73,7 @@ variable "vpc_zone" {
 }
 
 variable "vsi_instance_name" {
-  default = "bcbush-jumpserver"
+  default = "murph-jumpserver"
 }
 
 variable "ibmcloud_api_key" {
