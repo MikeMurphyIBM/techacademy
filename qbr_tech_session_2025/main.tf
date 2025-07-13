@@ -159,20 +159,20 @@ resource "ibm_pi_instance" "test-instance" {
  }
 
 # # Create the FIP for the VSI
-# resource "ibm_is_floating_ip" "vis_fip" {
-#   name                = "vsi-fip"
-#   target              = ibm_is_instance.instance1.primary_network_interface[0].id
-#   provider            = ibm.vpc
-# }
+ resource "ibm_is_floating_ip" "vis_fip" {
+   name                = "vsi-fip"
+   target              = ibm_is_instance.instance1.primary_network_interface[0].id
+   provider            = ibm.vpc
+ }
 
 # # Create the Transit Gateway
-# resource "ibm_tg_gateway" "main_tgw" {
-#   name                = "main_tgw"
-#   location            = var.vpc_region
-#   resource_group      = data.ibm_resource_group.group.id
-#   global              = false
-#   provider            = ibm.vpc
-# }
+ resource "ibm_tg_gateway" "main_tgw" {
+   name                = "main_tgw"
+   location            = var.vpc_region
+   resource_group      = data.ibm_resource_group.group.id
+   global              = false
+   provider            = ibm.vpc
+ }
 
 # # Connection for PowerVS Workspace A
 # resource "ibm_tg_connection" "pvs_workspace_a" {
