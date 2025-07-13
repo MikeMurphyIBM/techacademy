@@ -9,10 +9,10 @@ provider "ibm" {
   zone             = var.pvs_zone_a    
 }
 
-# data "ibm_is_ssh_key" "murph2" {
-#   name = "murph2"
-#   provider = ibm.vpc
-# }
+data "ibm_is_ssh_key" "murph2" {
+   name = "murph2"
+   provider = ibm.vpc
+ }
 
 ########################################################
 # Workspace in data center A
