@@ -66,7 +66,7 @@ resource "ibm_pi_instance" "test-instance" {
     pi_instance_name      = "murph-qbr-aix"
     pi_proc_type          = "shared"
     pi_image_id           = var.image_id
-    pi_key_pair_name      = murph2
+    pi_key_pair_name      = "murph2"
     pi_sys_type           = "s1022"
     pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
     pi_pin_policy         = "none"
