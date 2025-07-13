@@ -175,20 +175,20 @@ resource "ibm_pi_instance" "test-instance" {
  }
 
 # # Connection for PowerVS Workspace A
-# resource "ibm_tg_connection" "pvs_workspace_a" {
-#   gateway             = ibm_tg_gateway.main_tgw.id
-#   name                = "powervs_workspace_a"
-#   network_type        = "power_virtual_server"
-#   network_id          = ibm_resource_instance.pvs_workspace_a.id
-#   provider            = ibm.vpc
-# }
+ resource "ibm_tg_connection" "pvs_workspace_a" {
+   gateway             = ibm_tg_gateway.main_tgw.id
+   name                = "powervs_workspace_a"
+   network_type        = "power_virtual_server"
+   network_id          = ibm_resource_instance.pvs_workspace_a.id
+   provider            = ibm.vpc
+ }
 
 # # Connection for VPC
-# resource "ibm_tg_connection" "vpc" {
-#   gateway             = ibm_tg_gateway.main_tgw.id
-#   name                = "vpc"
-#   network_type        = "vpc"
-#   network_id          = ibm_is_vpc.admin_vpc.crn
-#   provider            = ibm.vpc
-# }
+ resource "ibm_tg_connection" "vpc" {
+   gateway             = ibm_tg_gateway.main_tgw.id
+   name                = "vpc"
+   network_type        = "vpc"
+   network_id          = ibm_is_vpc.admin_vpc.crn
+   provider            = ibm.vpc
+ }
 
