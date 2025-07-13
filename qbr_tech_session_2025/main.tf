@@ -82,43 +82,43 @@ resource "ibm_pi_instance" "test-instance" {
 # ########################################################
 
 # # Create the VPC
-# resource "ibm_is_vpc" "admin_vpc" {
-#   name                        = var.vpc_name
-#   resource_group              = data.ibm_resource_group.group.id
-#   address_prefix_management   = "manual"
-#   provider                    = ibm.vpc
-# }
+ resource "ibm_is_vpc" "admin_vpc" {
+   name                        = var.vpc_name
+   resource_group              = data.ibm_resource_group.group.id
+   address_prefix_management   = "manual"
+   provider                    = ibm.vpc
+ }
 
 # # Create a prefix in the VPC
-# resource "ibm_is_vpc_address_prefix" "test_vpc_test_vpc_zone_1_prefix" {
-#   name = "${var.vpc_name}-test-vpc-test-vpc-zone-1"
-#   vpc  = ibm_is_vpc.admin_vpc.id
-#   zone = "${var.vpc_region}-1"
-#   cidr = "192.168.2.0/24"
-#   provider = ibm.vpc
-# }
+ resource "ibm_is_vpc_address_prefix" "test_vpc_test_vpc_zone_1_prefix" {
+   name = "${var.vpc_name}-test-vpc-test-vpc-zone-1"
+   vpc  = ibm_is_vpc.admin_vpc.id
+   zone = "${var.vpc_region}-1"
+   cidr = "192.168.2.0/24"
+   provider = ibm.vpc
+ }
 
 # # Create the network ACL
-# resource "ibm_is_network_acl" "test_vpc_main_acl_acl" {
-#   name           = "test-vpc-main-acl-acl"
-#   vpc            = ibm_is_vpc.admin_vpc.id
-#   resource_group = data.ibm_resource_group.group.id
-#   provider = ibm.vpc
-#   rules {
-#     action      = "allow"
-#     destination = "0.0.0.0/0"
-#     direction   = "inbound"
-#     name        = "inbound"
-#     source      = "0.0.0.0/0"
-#   }
-#   rules {
-#     action      = "allow"
-#     destination = "0.0.0.0/0"
-#     direction   = "outbound"
-#     name        = "outbound"
-#     source      = "0.0.0.0/0"
-#   }
-# }
+ resource "ibm_is_network_acl" "test_vpc_main_acl_acl" {
+   name           = "test-vpc-main-acl-acl"
+   vpc            = ibm_is_vpc.admin_vpc.id
+   resource_group = data.ibm_resource_group.group.id
+   provider = ibm.vpc
+   rules {
+     action      = "allow"
+     destination = "0.0.0.0/0"
+     direction   = "inbound"
+     name        = "inbound"
+     source      = "0.0.0.0/0"
+   }
+   rules {
+     action      = "allow"
+     destination = "0.0.0.0/0"
+     direction   = "outbound"
+     name        = "outbound"
+     source      = "0.0.0.0/0"
+   }
+ }
 
 # # # Create the SSH key in the vpc
 # # resource "ibm_is_ssh_key" "vpc_ssh_key" {
