@@ -71,7 +71,7 @@ resource "ibm_pi_instance" "test-instance" {
   pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
   pi_pin_policy         = "none"
 
-  network {
+  pi_network {
     network_id          = ibm_pi_network.pvs_network_workspace_a.network_id
     ip_address          = "192.168.0.10"
   }
