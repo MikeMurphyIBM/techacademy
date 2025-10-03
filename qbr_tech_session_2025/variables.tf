@@ -18,11 +18,11 @@ variable "image_id" {
 
 variable "workspace_name_a" {
   description = "The name of the workspace to create in region a"
-  default = "murph-ping-pvs"
+  default = "murph-schematics"
 }
 
 variable "powervs_workspace_a_instance_name" {
-  default = "murph-ping-aix"
+  default = "murph-schematics"
 }
 
 variable "storage_type_a" {
@@ -73,7 +73,7 @@ variable "vpc_zone" {
 }
 
 variable "vsi_instance_name" {
-  default = "murph-jumpserver2"
+  default = "murph-jumpserver3"
 }
 
 variable "ibmcloud_api_key" {
