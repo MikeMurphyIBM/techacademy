@@ -60,13 +60,23 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 #}
 
 
+resource "ibm_pi_image" "imported_rhel_image" {
+  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
+  pi_image_id          = var.image_id
+  pi_image_name        = "RHEL9-SP4" # Give it a name you can reference locally
+  timeouts {
+    create = "9m"
+  }
+}
+
+
 # Create an instance in workspace A
 resource "ibm_pi_instance" "test-instance" {
   pi_memory             = "4"
   pi_processors         = "2"
   pi_instance_name      = "murph-qbr-aix"
   pi_proc_type          = "shared"
-  pi_image_id           = data.ibm_pi_image.rhel.id
+  pi_image_id           = data.ibm_pi_image.imported_rhel_image.id
   pi_key_pair_name      = "murph2"
   pi_sys_type           = "s922"
   pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
@@ -84,7 +94,7 @@ resource "ibm_pi_instance" "test-instance" {
 
 data "ibm_pi_image" "rhel" {
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  pi_image_id        = "2e6159dd-861c-4da8-b267-e3acea71ee59"
+  pi_image_name        = "RHEL9-SP4"
 }
 
 
