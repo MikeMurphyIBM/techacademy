@@ -168,8 +168,8 @@ resource "ibm_pi_instance" "test-instance" {
  }
 
 # # Create the Transit Gateway
- resource "ibm_tg_gateway" "main_tgw" {
-   name                = "main_tgw"
+ resource "ibm_tg_gateway" "movius_tgw" {
+   name                = "movius_tgw"
    location            = var.vpc_region
    resource_group      = data.ibm_resource_group.group.id
    global              = false
@@ -178,7 +178,7 @@ resource "ibm_pi_instance" "test-instance" {
 
 # # Connection for PowerVS Workspace A
  resource "ibm_tg_connection" "pvs_workspace_a" {
-   gateway             = ibm_tg_gateway.main_tgw.id
+   gateway             = ibm_tg_gateway.movius_tgw.id
    name                = "powervs_workspace_a"
    network_type        = "power_virtual_server"
    network_id          = ibm_resource_instance.pvs_workspace_a.id
@@ -187,7 +187,7 @@ resource "ibm_pi_instance" "test-instance" {
 
 # # Connection for VPC
  resource "ibm_tg_connection" "vpc" {
-   gateway             = ibm_tg_gateway.main_tgw.id
+   gateway             = ibm_tg_gateway.movius_tgw.id
    name                = "vpc"
    network_type        = "vpc"
    network_id          = ibm_is_vpc.admin_vpc.crn
