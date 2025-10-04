@@ -84,9 +84,9 @@ resource "ibm_pi_instance" "test-instance" {
 
 
 ##data "ibm_pi_image" "rhel" {
-  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  pi_image_name        = "RHEL9-SP4"
-}
+#  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
+#  pi_image_name        = "RHEL9-SP4"
+#}
 
 
 # ########################################################
