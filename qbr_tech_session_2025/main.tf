@@ -59,10 +59,6 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
  # depends_on = [ibm_resource_instance.pvs_workspace_a]
 #}
 
-data "ibm_pi_image" "rhel_image" {
-  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  pi_image_name        = var.image_name
-}
 
 # Create an instance in workspace A
 resource "ibm_pi_instance" "test-instance" {
@@ -83,6 +79,12 @@ resource "ibm_pi_instance" "test-instance" {
 
   provider              = ibm.a
 }
+
+data "ibm_pi_image" "rhel_image" {
+  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
+  pi_image_name        = var.image_name
+}
+
 
 # ########################################################
 # # VPC in us-east-1
