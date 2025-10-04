@@ -172,7 +172,7 @@ resource "ibm_pi_instance" "test-instance" {
 
 # # Create the FIP for the VSI
  resource "ibm_is_floating_ip" "vis_fip" {
-   name                = "vsi-fip2"
+   name                = "vsi-fip4"
    target              = ibm_is_instance.instance1.primary_network_interface[0].id
    provider            = ibm.vpc
  }
