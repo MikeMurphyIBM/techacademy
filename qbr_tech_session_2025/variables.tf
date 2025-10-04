@@ -9,10 +9,10 @@ variable "pvs_zone_a" {
   default     = "WDC06"
 }
 
-variable "image_name" {
-  description = "The name of the IBM Power Virtual Server image to use for the instance." 
+variable "image_ID" {
+  description = "The ID of the IBM Power Virtual Server image to use for the instance." 
   type        = string # An image ID is typically a string value. 
-  default     = "RHEL9-SP4" # **This will set the default image ID to the one you provided.**
+  default     = "2e6159dd-861c-4da8-b267-e3acea71ee59" # **This will set the default image ID to the one you provided.**
 }
 
 
