@@ -60,13 +60,10 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
 #}
 
 
-resource "ibm_pi_image" "imported_rhel_image" {
+data "ibm_pi_image" "imported_rhel_image" {
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
   pi_image_id          = var.image_id
-  pi_image_name        = "RHEL9-SP4" # Give it a name you can reference locally
-  timeouts {
-    create = "9m"
-  }
+  
 }
 
 
