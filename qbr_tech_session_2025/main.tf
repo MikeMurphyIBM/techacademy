@@ -59,13 +59,18 @@ resource "ibm_pi_network" "pvs_network_workspace_a" {
  # depends_on = [ibm_resource_instance.pvs_workspace_a]
 #}
 
+data "ibm_pi_image" "rhel_image" {
+  pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
+  pi_image_name        = "RHEL9-SP4"
+}
+
 # Create an instance in workspace A
 resource "ibm_pi_instance" "test-instance" {
   pi_memory             = "4"
   pi_processors         = "2"
   pi_instance_name      = "murph-qbr-aix"
   pi_proc_type          = "shared"
-  pi_image_id           = var.image_id
+  pi_image_id           = data.ibm_pi_image.rhel_image.id
   pi_key_pair_name      = "murph2"
   pi_sys_type           = "s922"
   pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
