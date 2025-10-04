@@ -6,7 +6,7 @@ variable "pvs_region_a" {
 variable "pvs_zone_a" {
   description = "Zone for PowerVS (e.g., wdc06)"
   type        = string
-  default     = "WDC06"
+  default     = "WDC04"
 }
 
 variable "image_id" {
