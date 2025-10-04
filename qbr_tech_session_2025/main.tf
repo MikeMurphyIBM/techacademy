@@ -66,7 +66,7 @@ resource "ibm_pi_instance" "test-instance" {
   pi_processors         = "2"
   pi_instance_name      = "murph-qbr-aix"
   pi_proc_type          = "shared"
-  pi_image_id           = data.ibm_pi_image.powerimages.id
+  pi_image_id           = data.ibm_pi_image.rhel.id
   pi_key_pair_name      = "murph2"
   pi_sys_type           = "s922"
   pi_cloud_instance_id  = ibm_resource_instance.pvs_workspace_a.guid
@@ -82,9 +82,9 @@ resource "ibm_pi_instance" "test-instance" {
 
 
 
-data "ibm_pi_image" "powerimages" {
+data "ibm_pi_image" "rhel" {
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  pi_image_name        = "RHEL9-SP4"
+  pi_image_id        = "2e6159dd-861c-4da8-b267-e3acea71ee59"
 }
 
 
