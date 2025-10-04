@@ -82,12 +82,9 @@ resource "ibm_pi_instance" "test-instance" {
 
 
 
-data "ibm_pi_image" "rhel_image" {
+data "ibm_pi_image" "powerimages" {
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
-  pi_image_name        = var.image_name
-
-  depends_on = [ibm_resource_instance.pvs_workspace_a]
-
+  pi_image_name        = "RHEL9-SP4"
 }
 
 
