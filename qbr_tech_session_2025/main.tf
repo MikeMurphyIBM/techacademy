@@ -80,13 +80,14 @@ resource "ibm_pi_instance" "test-instance" {
   provider              = ibm.a
 }
 
-resource "null_resource" "wait_for_workspace" {
-  depends_on = [ibm_resource_instance.pvs_workspace_a]
-}
+
 
 data "ibm_pi_image" "rhel_image" {
   pi_cloud_instance_id = ibm_resource_instance.pvs_workspace_a.guid
   pi_image_name        = var.image_name
+
+  depends_on = [ibm_resource_instance.pvs_workspace_a]
+
 }
 
 
